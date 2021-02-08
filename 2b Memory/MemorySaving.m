@@ -4,17 +4,30 @@ close all % close all windows
 
 FileName = '..\Model\o3_surface_20180701000000.nc'; % define the name of the file to be used, the path is included
 
+[AllDataMem] = LoadAllData(FileName);
+
 Contents = ncinfo(FileName); % Store the file content information in a variable.
 
 
-%% Section 2: Load all the model data together
-for idx = 1: 8
-    AllData(idx,:,:,:) = ncread(FileName, Contents.Variables(idx).Name);
-    fprintf('Loading %s\n', Contents.Variables(idx).Name); % display loading information
-end
+% %% Section 2: Load all the model data together
+% for idx = 1: 8
+%     AllData(idx,:,:,:) = ncread(FileName, Contents.Variables(idx).Name);
+%     fprintf('Loading %s\n', Contents.Variables(idx).Name); % display loading information
+% end
+% 
+% AllDataMem = whos('AllData').bytes/1000000;
+% fprintf('Memory used for all data: %.3f MB\n', AllDataMem)
 
+function [AllDataMem] = LoadAllData(FileName)
+%% Section 2: Load all the model data together
+Contents = ncinfo(FileName); % Store the file content information in a variable.
+for idx = 1: 8
+ AllData(idx,:,:,:) = ncread(FileName, Contents.Variables(idx).Name);
+ fprintf('Loading %s\n', Contents.Variables(idx).Name); % display loading information
+end
 AllDataMem = whos('AllData').bytes/1000000;
 fprintf('Memory used for all data: %.3f MB\n', AllDataMem)
+
 
 %% Section 3: Loading all the data for a single hour from all the models
 % We combine the aboce code to cycle through the names and load each model.
@@ -74,3 +87,5 @@ fprintf('Memory used for all data: %.2f MB\n', AllDataMem)
 fprintf('Memory used for hourly data: %.2f MB\n', HourDataMem)
 fprintf('Maximum memory used hourly = %.2f MB\n', HourMem)
 fprintf('Hourly memory as fraction of all data = %.2f\n\n', HourMem / AllDataMem)
+
+end 
