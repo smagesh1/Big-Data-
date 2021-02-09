@@ -1,3 +1,4 @@
+function [HourMem]= LoadAllHours(FileName)
 %% Section 4: Cycle through the hours and load all the models for each hour and record memory use
 % We use an index named 'StartHour' in our loop
 HourMem = 0; % storage variable for the maximum memory in use by our data variable
