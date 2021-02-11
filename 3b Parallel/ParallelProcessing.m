@@ -33,7 +33,7 @@ EnsembleVectorPar = zeros(NumLocations, NumHours); % pre-allocate memory
 % The section 'parallel processing' will process the data location one
 % after the other, reporting on the time involved.
 tic
-for idxTime = 1:NumHours
+for idxTime = 1:250
 
     %% 5: Load the data for each hour
     % Each hour we read the data from the required models, defined by the
