@@ -52,6 +52,9 @@ Contents = ncinfo(FileName); % Store the file content information in a variable.
 StartLat = 1;
 StartLon = 1;
 
+mean([2, NaN, 4])
+nanmean([2, NaN, 4])
+
 fprintf('Testing files: %s\n', FileName)
 for idxHour = 1:25
     
