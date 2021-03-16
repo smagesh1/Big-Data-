@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2021-01-29" view-index="0" gantt-divider-location="565" resource-divider-location="300" version="2.0" locale="en_GB">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2021-01-29" view-index="0" gantt-divider-location="599" resource-divider-location="300" version="2.0" locale="en_GB">
     <description/>
     <view zooming-state="default:2" id="gantt-chart">
-        <field id="tpd3" name="Name" width="48" order="0"/>
-        <field id="tpd4" name="Begin date" width="25" order="1"/>
-        <field id="tpd5" name="End date" width="25" order="2"/>
+        <field id="tpd3" name="Name" width="47" order="0"/>
+        <field id="tpd4" name="Begin date" width="26" order="1"/>
+        <field id="tpd5" name="End date" width="26" order="2"/>
     </view>
     <view id="resource-table">
-        <field id="0" name="Name" width="52" order="0"/>
-        <field id="1" name="Default role" width="47" order="1"/>
+        <field id="0" name="Name" width="50" order="0"/>
+        <field id="1" name="Default role" width="49" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -57,17 +57,17 @@
             <task id="68" name="Lab sheet 5" color="#8cb6ce" meeting="false" start="2021-02-19" duration="5" complete="0" expand="true"/>
             <task id="60" name="Lecture 5" color="#8cb6ce" meeting="false" start="2021-02-19" duration="5" complete="0" expand="true"/>
         </task>
-        <task id="7" name="Week 6" meeting="false" start="2021-03-01" duration="21" complete="0" expand="true">
-            <task id="45" name="Lecture 6" meeting="false" start="2021-03-29" duration="1" complete="0" expand="true"/>
-            <task id="34" name="Lab sheet" meeting="false" start="2021-03-01" duration="1" complete="0" expand="true"/>
+        <task id="7" name="Week 6" color="#000000" meeting="false" start="2021-03-09" duration="8" complete="0" expand="true">
+            <task id="45" name="Lecture 6" color="#8cb6ce" meeting="false" start="2021-03-09" duration="3" complete="0" expand="true"/>
+            <task id="34" name="Lab sheet" color="#8cb6ce" meeting="false" start="2021-03-10" duration="7" complete="0" expand="true"/>
         </task>
-        <task id="8" name="Week 7" meeting="false" start="2021-03-04" duration="3" complete="0" expand="true">
-            <task id="42" name="Lab sheet" meeting="false" start="2021-03-08" duration="1" complete="0" expand="true"/>
-            <task id="41" name="Lecture 7" meeting="false" start="2021-03-04" duration="1" complete="0" expand="true"/>
+        <task id="8" name="Week 7" color="#000000" meeting="false" start="2021-03-22" duration="4" complete="0" expand="true">
+            <task id="42" name="Lab sheet" color="#8cb6ce" meeting="false" start="2021-03-22" duration="4" complete="0" expand="true"/>
+            <task id="41" name="Lecture 7" color="#8cb6ce" meeting="false" start="2021-03-22" duration="2" complete="0" expand="true"/>
         </task>
-        <task id="10" name="Week 8" meeting="false" start="2021-03-15" duration="2" complete="0" expand="true">
-            <task id="46" name="Lab sheet" meeting="false" start="2021-03-16" duration="1" complete="0" expand="true"/>
-            <task id="43" name="Lecture 8" meeting="false" start="2021-03-15" duration="1" complete="0" expand="true"/>
+        <task id="10" name="Week 8" meeting="false" start="2021-03-29" duration="2" complete="0" expand="true">
+            <task id="46" name="Lab sheet" color="#8cb6ce" meeting="false" start="2021-03-29" duration="2" complete="0" expand="true"/>
+            <task id="43" name="Lecture 8" color="#8cb6ce" meeting="false" start="2021-03-29" duration="1" complete="0" expand="true"/>
         </task>
     </tasks>
     <resources/>
@@ -83,9 +83,9 @@
         <displaycolumn property-id="tpd9" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd1" order="-1" width="75" visible="false"/>
         <displaycolumn property-id="tpd0" order="-1" width="75" visible="false"/>
-        <displaycolumn property-id="tpd3" order="0" width="264" visible="true"/>
-        <displaycolumn property-id="tpd4" order="1" width="141" visible="true"/>
-        <displaycolumn property-id="tpd5" order="2" width="141" visible="true"/>
+        <displaycolumn property-id="tpd3" order="0" width="275" visible="true"/>
+        <displaycolumn property-id="tpd4" order="1" width="153" visible="true"/>
+        <displaycolumn property-id="tpd5" order="2" width="152" visible="true"/>
     </taskdisplaycolumns>
     <previous/>
     <roles roleset-name="Default"/>
