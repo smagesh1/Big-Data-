@@ -10,6 +10,9 @@ VarNames = {C.Variables.Name};
 
 %% Move to new *.nc file
 FileOut = 'TestyTest.nc';
+if exist (FileOut, 'file')
+    delete (FileOut)
+end
 nccreate(FileOut, 'lat', 'Dimensions', {'lat', 400}, 'DataType', 'single');
 ncwrite(FileOut, 'lat', ncread(FileIn, 'lat'));
 nccreate(FileOut, 'lon', 'Dimensions', {'lon', 700}, 'DataType', 'single');
