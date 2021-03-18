@@ -35,8 +35,9 @@ end
 %% #####
 
 %% Test File with Errors
-%% Set file to test
-    FileName = '../Model/TestFileText.nc'; % define our test file
+%% Set file to test;
+    %%FileName = '../Model/TestFileText.nc'; % define our test file
+    FileName = 'C:\Users\mages\OneDrive\Documents\5011CEM\5011CEM2021_mageshs\6a Testing Text\TestyTest.nc';
 
     Contents = ncinfo(FileName); % Store the file content information in a variable.
     FileID = netcdf.open(FileName,'NC_NOWRITE'); % open file read only and create handle
