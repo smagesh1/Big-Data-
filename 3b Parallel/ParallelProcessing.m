@@ -9,7 +9,7 @@ Contents = ncinfo(FileName);
 
 Lat = ncread(FileName, 'lat');
 Lon = ncread(FileName, 'lon');
-NumHours = 25;
+NumHours = 5;
 
 %% 2: Processing parameters
 % ##  provided by customer  ##
@@ -33,7 +33,7 @@ EnsembleVectorPar = zeros(NumLocations, NumHours); % pre-allocate memory
 % The section 'parallel processing' will process the data location one
 % after the other, reporting on the time involved.
 tic
-for idxTime = 1:250
+for idxTime = 1:NumHours
 
     %% 5: Load the data for each hour
     % Each hour we read the data from the required models, defined by the
@@ -83,12 +83,12 @@ for idxTime = 1:250
     DataQ = parallel.pool.DataQueue; % Create a variable in the parallel pool
 %     
 %     % Create a waitbar and handle top it:
-    hWaitBar = waitbar(0, sprintf('Time period %i, Please wait ...', idxTime));
+  % hWaitBar = waitbar(0, sprintf('Time period %i, Please wait ...', idxTime));
 %     % Define the function to call when new data is received in the data queue
 %     % 'DataQ'. See end of script for the function definition.
-    afterEach(DataQ, @nUpdateWaitbar);
-    N = size(Data2Process,1); % the total number of data to process
-    p = 20; % offset so the waitbar shows some colour quickly.
+    %afterEach(DataQ, @nUpdateWaitbar);
+    %N = size(Data2Process,1); % the total number of data to process
+    %p = 20; % offset so the waitbar shows some colour quickly.
     
     %% 9: The actual parallel processing!
     % Ensemble value is a function defined by the customer to calculate the
@@ -99,10 +99,10 @@ for idxTime = 1:250
     T4 = toc;
     parfor idx = 1: 250 % size(Data2Process,1)
         [EnsembleVectorPar(idx, idxTime)] = EnsembleValue(Data2Process(idx,:,:,:), LatLon, RadLat, RadLon, RadO3);
-        send(DataQ, idx);
+        %send(DataQ, idx);
     end
     
-    close(hWaitBar); % close the wait bar
+    %close(hWaitBar); % close the wait bar
     
     T3(idxTime) = toc - T4; % record the parallel processing time for this hour of data
     fprintf('Parallel processing time for hour %i : %.1f s\n', idxTime, T3(idxTime))
