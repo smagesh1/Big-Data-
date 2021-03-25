@@ -45,7 +45,7 @@ end
 %% Test File with Errors
 NaNErrors = 0;
 %% Set file to test
-FileName = '../Model/TestFileNaN.nc'; % define our test file
+FileName = 'C:\Users\mages\OneDrive\Documents\5011CEM\5011CEM2021_mageshs\6b Testing NaN\TestNan.m'; % define our test file
 
 Contents = ncinfo(FileName); % Store the file content information in a variable.
 
