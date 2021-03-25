@@ -3,8 +3,8 @@ function ParallelProcessing
 clear all
 close all
 
-FileName = '..\Model\o3_surface_20180701000000.nc';
-
+%FileName = '..\Model\o3_surface_20180701000000.nc';
+FileName = 'C:\Users\Samson\Documents\GitHub\5011CEM2021_mageshs\Model\o3_surface_20180701000000.nc';
 Contents = ncinfo(FileName);
 
 Lat = ncread(FileName, 'lat');
