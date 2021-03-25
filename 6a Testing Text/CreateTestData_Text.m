@@ -21,7 +21,7 @@ ncwrite(FileOut, 'lon', ncread(FileIn, 'lon'));
 nccreate(FileOut, 'hour', 'Dimensions', {'hour', 25}, 'DataType', 'single');
 ncwrite(FileOut, 'hour', ncread(FileIn, 'hour'));
 
-Model2Change = 5; % Select the model that will be overwritten with errors
+Model2Change = 6; % Select the model that will be overwritten with errors
 
 for idx = 1:7
     if idx ~= Model2Change 
