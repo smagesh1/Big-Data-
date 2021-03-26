@@ -11,7 +11,8 @@ NaNErrors = 0;
 %% Set file to test
 %%FileName = '../Model/o3_surface_20180701000000.nc'; % define our test file
 
-FileName = 'C:\Users\mages\OneDrive\Documents\5011CEM\5011CEM2021_mageshs\Model\o3_surface_20180701000000.nc';
+%%FileName = 'C:\Users\mages\OneDrive\Documents\5011CEM\5011CEM2021_mageshs\Model\o3_surface_20180701000000.nc';
+FileName = 'C:\Users\Samson\Documents\GitHub\5011CEM2021_mageshs\Model\o3_surface_20180701000000.nc';
 
 Contents = ncinfo(FileName); % Store the file content information in a variable.
 
@@ -45,7 +46,8 @@ end
 %% Test File with Errors
 NaNErrors = 0;
 %% Set file to test
-FileName = 'C:\Users\mages\OneDrive\Documents\5011CEM\5011CEM2021_mageshs\6b Testing NaN\TestNan.m'; % define our test file
+%%FileName = 'C:\Users\mages\OneDrive\Documents\5011CEM\5011CEM2021_mageshs\6b Testing NaN\TestNan.m'; % define our test file
+FileName = 'C:\Users\Samson\Documents\GitHub\5011CEM2021_mageshs\6b Testing NaN\TestNan.m'; 
 
 Contents = ncinfo(FileName); % Store the file content information in a variable.
 
