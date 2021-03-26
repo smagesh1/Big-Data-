@@ -42,7 +42,7 @@ for NumHour = 1:5 % loop through each hour
     %% Sequential analysis    
     t1 = toc;
     t2 = t1;
-    for idx = 1: 250 % size(Data2Process,1) % step through each data location to process the data
+    for idx = 1: 10000 % size(Data2Process,1) % step through each data location to process the data
         
         % The analysis of the data creates an 'ensemble value' for each
         % location. This method is defined by
