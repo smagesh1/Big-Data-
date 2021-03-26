@@ -18,7 +18,7 @@ LogFileName = 'AnalysisLog.txt';
 
 % create new log file, 'w' replaces the file if present. To continually
 % append, use 'a'
-LogID = fopen('AnalysisLog.txt', 'w');
+LogID = fopen('AnalysisLog.txt', 'a');
 fprintf(LogID, '%s: Starting analysis of %s\n', datestr(now, 0), DataFileName);
 
 StartLat = 1;
