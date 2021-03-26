@@ -2,7 +2,7 @@
 clear all
 close all
 
-FileName = '..\Model\o3_surface_20180701000000.nc';
+FileName = 'C:\Users\Samson\Documents\GitHub\5011CEM2021_mageshs\Model\o3_surface_20180701000000.nc';
 
 Contents = ncinfo(FileName);
 
@@ -42,7 +42,7 @@ for NumHour = 1:4 % loop through each hour
     %% Sequential analysis    
     t1 = toc;
     t2 = t1;
-    for idx = 1: 100 % size(Data2Process,1) % step through each data location to process the data
+    for idx = 1: 250 % size(Data2Process,1) % step through each data location to process the data
         
         % The analysis of the data creates an 'ensemble value' for each
         % location. This method is defined by
