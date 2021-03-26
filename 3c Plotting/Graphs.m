@@ -27,6 +27,16 @@ title('Processing time vs number of processors')
 
 legend('250 Data', '5,000 Data')
 
+%%added in from here
+x3Vals = [2,3,4,5,6];
+y3Vals = [400.85, 284.50, 217.48, 201.91, 183.69];
+figure(3)
+plot(x3Vals,y3Vals)
+xlabel('Number of Processors')
+ylabel('Processing time (s)')
+title('Processing time vs number of processors')
+%%to here
+
 
 %% Show two plots on same y-axis
 %% Mean processing time
