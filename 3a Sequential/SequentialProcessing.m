@@ -24,16 +24,25 @@ NumLat = 400; % number of latitude locations ot load
 StartLon = 1; % longitude location to start loading
 NumLon = 700; % number of longitude locations ot load
 tic
-for NumHour = 1:5 % loop through each hour
+% for NumHour = 1:5 % loop through each hour
+%     fprintf('Processing hour %i\n', NumHour)
+%     DataLayer = 1; % which 'layer' of the array to load the model data into
+%     for idx = [1, 2, 4, 5, 6, 7, 8] % model data to load
+%         % load the model data
+%         HourlyData(DataLayer,:,:) = ncread(FileName, Contents.Variables(idx).Name,...
+%             [StartLon, StartLat, NumHour], [NumLon, NumLat, 1]);
+%         DataLayer = DataLayer + 1; % step to the next 'layer'
+%     end
+Options = [1,2,3,4,5]
+for NumHour = 1:size(Options,1)
     fprintf('Processing hour %i\n', NumHour)
-    DataLayer = 1; % which 'layer' of the array to load the model data into
-    for idx = [1, 2, 4, 5, 6, 7, 8] % model data to load
-        % load the model data
+    DataLayer = 1;
+    for idx = 1:size(Options,1)
         HourlyData(DataLayer,:,:) = ncread(FileName, Contents.Variables(idx).Name,...
-            [StartLon, StartLat, NumHour], [NumLon, NumLat, 1]);
-        DataLayer = DataLayer + 1; % step to the next 'layer'
+             [StartLon, StartLat, NumHour], [NumLon, NumLat, 1]);
+         DataLayer = DataLayer + 1; % step to the next 'layer'
+         Results(idx,:) = [Options(idx),HourlyData];
     end
-    
     % We need to prepare our data for processing. This method is defined by
     % our customer. You are not required to understand this method, but you
     % can ask your module leader for more information if you wish.
