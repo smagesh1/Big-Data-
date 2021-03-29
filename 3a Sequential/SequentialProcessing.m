@@ -41,7 +41,7 @@ for NumHour = 1:size(Options,1)
         HourlyData(DataLayer,:,:) = ncread(FileName, Contents.Variables(idx).Name,...
              [StartLon, StartLat, NumHour], [NumLon, NumLat, 1]);
          DataLayer = DataLayer + 1; % step to the next 'layer'
-         Results(idx,:) = [Options(idx),HourlyData];
+         Results(idx,size(Options)) = [Options(idx),HourlyData];
     end
     % We need to prepare our data for processing. This method is defined by
     % our customer. You are not required to understand this method, but you
