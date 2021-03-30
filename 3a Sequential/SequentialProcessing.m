@@ -64,6 +64,18 @@ for NumHour = 1:5 % loop through each hour
     
         
 end
+t1 = toc;
+t2 = t1;
+Options = [1,2,3,4,5,6];
+for idx = 1:size(Options,1)
+    no_of_data = Options(idx);
+    
+    
+        
+        
+    
+end
+        
 tSeq = toc;
 
 fprintf('Total time for sequential processing = %.2f s\n\n', tSeq)
