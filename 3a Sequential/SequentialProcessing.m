@@ -36,12 +36,8 @@ tic
 Options = [1,2,3,4,5]
 for NumHour = 1:size(Options,1)
     fprintf('Processing hour %i\n', NumHour)
-    DataLayer = 1;
     for idx = 1:size(Options,1)
-        HourlyData(DataLayer,:,:) = ncread(FileName, Contents.Variables(idx).Name,...
-             [StartLon, StartLat, NumHour], [NumLon, NumLat, 1]);
-         DataLayer = DataLayer + 1; % step to the next 'layer'
-         Results(idx,size(Options)) = [Options(idx),HourlyData];
+        Results(idx,:) = [Options(idx),sum(T2)];
     end
     % We need to prepare our data for processing. This method is defined by
     % our customer. You are not required to understand this method, but you
