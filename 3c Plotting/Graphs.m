@@ -27,6 +27,7 @@ title('Processing time vs number of processors')
 
 legend('250 Data', '5,000 Data')
 
+%%10000 data processed
 %%added in from here, parallel processing
 x3Vals = [2,3,4,5,6];
 y3Vals = [400.85, 284.50, 217.48, 201.91, 183.69];
