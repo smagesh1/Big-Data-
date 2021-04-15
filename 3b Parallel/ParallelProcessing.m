@@ -65,7 +65,7 @@ for idxTime = 1:NumHours
     
 %% Parallel Analysis
     %% 7: Create the parallel pool and attache files for use
-    PoolSize = 3 ; % define the number of processors to use in parallel
+    PoolSize = 2 ; % define the number of processors to use in parallel
     if isempty(gcp('nocreate'))
         parpool('local',PoolSize);
     end
