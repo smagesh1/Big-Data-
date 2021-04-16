@@ -52,6 +52,16 @@ yyaxis left
 plot(x4Vals, y4Vals, '-bd')
 xlabel('1 Proccessor')
 ylabel('Processing time(s)')
-title('Sequential Processing time of 10000 data')
-
+title('Sequential Processing times')
 legend('10,000 Data')
+
+x5Vals = [1,2,3,4,5,6];
+y5Vals = [609.29,609.29,609.29,609.29,609.29,609.29];
+figure(4)
+yyaxis left
+plot(x5Vals, y5Vals, '-rx')
+
+xlabel('1 Proccessor')
+ylabel('Processing time(s)')
+title('Sequential Processing times')
+legend('5,000 Data')
