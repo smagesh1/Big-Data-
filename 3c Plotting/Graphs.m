@@ -46,12 +46,12 @@ legend('5,000 Data','10,000 Data')
 %% sequential proccessing plot
 
 x4Vals = [1,2,3,4,5,6];
-y4Vals = [1222.81,1222.82,1222.81,1222.81,1222.81,1222.81]
+y4Vals = [1222.81,1222.81,1222.81,1222.81,1222.81,1222.81];
 figure(3)
-yyaxis right
-plot(x4Vals, y4Vals, '-rx')
+yyaxis left
+plot(x4Vals, y4Vals, '-bd')
 xlabel('1 Proccessor')
 ylabel('Processing time(s)')
-title('Sequential Processing time')
+title('Sequential Processing time of 10000 data')
 
 legend('10,000 Data')
