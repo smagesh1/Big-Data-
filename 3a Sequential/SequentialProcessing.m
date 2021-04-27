@@ -1,7 +1,18 @@
-%% This script allows you to open and explore the data in a *.nc file
-%clear all
-%close all
+datasizes = [5000, 10000]; %quantity of data that will be tested 
 
+
+%%loop going through the datasizes
+for idx = 1:size(datasizes,2)
+    LoopParameter = datasizes(idx);
+    [totalSequentialtime] = SequentialProcessings(LoopParameter);
+    Results(idx,:) = [datasizes(idx), totalSequentialtime];
+    fprintf('result is %d', totalSequentialtime);
+    disp(totalSequentialtime)
+    
+end
+
+function [tSeq] = SequentialProcessings(LoopParameter)
+%% This script allows you to open and explore the data in a *.nc file
 FileName = 'C:\Users\Samson\Documents\GitHub\5011CEM2021_mageshs\Model\o3_surface_20180701000000.nc';
 
 Contents = ncinfo(FileName);
@@ -23,6 +34,8 @@ StartLat = 1; % latitude location to start laoding
 NumLat = 400; % number of latitude locations ot load
 StartLon = 1; % longitude location to start loading
 NumLon = 700; % number of longitude locations ot load
+
+
 tic
 for NumHour = 1:5 % loop through each hour
     fprintf('Processing hour %i\n', NumHour)
@@ -33,7 +46,7 @@ for NumHour = 1:5 % loop through each hour
             [StartLon, StartLat, NumHour], [NumLon, NumLat, 1]);
         DataLayer = DataLayer + 1; % step to the next 'layer'
     end
-
+    
     % We need to prepare our data for processing. This method is defined by
     % our customer. You are not required to understand this method, but you
     % can ask your module leader for more information if you wish.
@@ -42,7 +55,7 @@ for NumHour = 1:5 % loop through each hour
     %% Sequential analysis    
     t1 = toc;
     t2 = t1;
-    for idx = 1: 5000 % size(Data2Process,1) % step through each data location to process the data
+    for idx = 1: LoopParameter % size(Data2Process,1) % step through each data location to process the data
         
         % The analysis of the data creates an 'ensemble value' for each
         % location. This method is defined by
@@ -64,8 +77,8 @@ for NumHour = 1:5 % loop through each hour
     
         
 end
-
-        
 tSeq = toc;
 
 fprintf('Total time for sequential processing = %.2f s\n\n', tSeq)
+end
+
