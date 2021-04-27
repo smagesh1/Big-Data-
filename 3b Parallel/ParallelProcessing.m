@@ -1,7 +1,21 @@
-function ParallelProcessing
+datasizes = [5000, 10000];
+workers = [2,3,4,5,6];
+Results = [];
+for idx1=1:size(datasizes)
+    DataParameter = datasizes(idx1);
+    for idx2 = 1:size(workers)
+        WorkerParameter = workers(idx2);
+        Results = [Results; WorkerParameter,DataParameter];
+    end
+end
+       
+    
+
+
+
+function [Parallel_processing] = Parallel_Processing(datasizes,workers)
 %% 1: Load Data
-clear all
-close all
+
 
 %FileName = '..\Model\o3_surface_20180701000000.nc';
 FileName = 'C:\Users\Samson\Documents\GitHub\5011CEM2021_mageshs\Model\o3_surface_20180701000000.nc';
@@ -65,7 +79,7 @@ for idxTime = 1:NumHours
     
 %% Parallel Analysis
     %% 7: Create the parallel pool and attache files for use
-    PoolSize = 2 ; % define the number of processors to use in parallel
+    PoolSize = workers ; % define the number of processors to use in parallel
     if isempty(gcp('nocreate'))
         parpool('local',PoolSize);
     end
@@ -97,7 +111,7 @@ for idxTime = 1:NumHours
     % this being a 'big data' project due to the processing time (not the
     % pure volume of raw data alone).
     T4 = toc;
-    parfor idx = 1: 5000 % size(Data2Process,1)
+    parfor idx = 1: datasizes % size(Data2Process,1)
         [EnsembleVectorPar(idx, idxTime)] = EnsembleValue(Data2Process(idx,:,:,:), LatLon, RadLat, RadLon, RadO3);
         %send(DataQ, idx);
     end
@@ -106,7 +120,7 @@ for idxTime = 1:NumHours
     
     T3(idxTime) = toc - T4; % record the parallel processing time for this hour of data
     fprintf('Parallel processing time for hour %i : %.1f s\n', idxTime, T3(idxTime))
-    
+    Parallel_processing = T3(idxTime)
 end % end time loop
 T2 = toc;
 delete(gcp);
