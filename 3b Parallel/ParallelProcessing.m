@@ -1,10 +1,11 @@
-datasizes = [5000, 10000];
+datasizes = [5000, 10000]; 
 workers = [2,3,4,5,6];
 Results = [];
-for idx1=1:size(datasizes)
+for idx1=1:size(datasizes,2)
     DataParameter = datasizes(idx1);
-    for idx2 = 1:size(workers)
+    for idx2 = 1:size(workers,2)
         WorkerParameter = workers(idx2);
+        [Parallel_processing] = ParallelProcessing(DataParameter,WorkerParameter);
         Results = [Results; WorkerParameter,DataParameter];
     end
 end
@@ -13,7 +14,7 @@ end
 
 
 
-function [Parallel_processing] = Parallel_Processing(datasizes,workers)
+function [Parallel_processing] = ParallelProcessing(DataParameter,WorkerParameter)
 %% 1: Load Data
 
 
@@ -79,7 +80,7 @@ for idxTime = 1:NumHours
     
 %% Parallel Analysis
     %% 7: Create the parallel pool and attache files for use
-    PoolSize = workers ; % define the number of processors to use in parallel
+    PoolSize = WorkerParameter ; % define the number of processors to use in parallel
     if isempty(gcp('nocreate'))
         parpool('local',PoolSize);
     end
@@ -111,7 +112,7 @@ for idxTime = 1:NumHours
     % this being a 'big data' project due to the processing time (not the
     % pure volume of raw data alone).
     T4 = toc;
-    parfor idx = 1: datasizes % size(Data2Process,1)
+    parfor idx = 1: DataParameter % size(Data2Process,1)
         [EnsembleVectorPar(idx, idxTime)] = EnsembleValue(Data2Process(idx,:,:,:), LatLon, RadLat, RadLon, RadO3);
         %send(DataQ, idx);
     end
@@ -120,7 +121,7 @@ for idxTime = 1:NumHours
     
     T3(idxTime) = toc - T4; % record the parallel processing time for this hour of data
     fprintf('Parallel processing time for hour %i : %.1f s\n', idxTime, T3(idxTime))
-    Parallel_processing = T3(idxTime)
+    Parallel_processing = T3(idxTime);
 end % end time loop
 T2 = toc;
 delete(gcp);
