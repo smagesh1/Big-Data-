@@ -1,18 +1,3 @@
-datasizes = [5000, 10000]; 
-workers = [2,3,4,5,6];
-Results = [];
-for idx1=1:size(datasizes,2)
-    DataParameter = datasizes(idx1);
-    for idx2 = 1:size(workers,2)
-        WorkerParameter = workers(idx2);
-        [Parallel_processing] = ParallelProcessing(DataParameter,WorkerParameter);
-        Results = [Results; WorkerParameter,DataParameter];
-    end
-end
-       
-    
-
-
 
 function [Parallel_processing] = ParallelProcessing(DataParameter,WorkerParameter)
 %% 1: Load Data
