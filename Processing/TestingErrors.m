@@ -32,7 +32,7 @@ end
 %% Print Output
 fprintf('\nTesting files: %s\n', FileName)
 if NaNErrors
-    fprintf('NaN errors are present.\n')
+    fprintf('NaN errors present!\n')
     
 else
     fprintf('No Nan errors present.\n')

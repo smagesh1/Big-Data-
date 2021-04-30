@@ -1,5 +1,5 @@
 
-loading data
+%loading data
 FileName = '..\Model\o3_surface_20180701000000.nc'; 
 Contents = ncinfo(FileName);
 %automating testing first
@@ -9,7 +9,7 @@ Lon = ncread(FileName, 'lon');
 
 
 NumHours = 5;
-datasizes = [5000];
+datasizes = [5000,10000];
 Workers = [2,3,4,5,6]; 
 
 % automating sequential processing and plot
@@ -33,12 +33,13 @@ legend('5,000 Data','10,000 Data')
 end
 
 
-gh
 
 
-Results = []; 
+
+
 
 %%Automating parallel processing and plot
+Results = []; 
 for idx = 1:size(datasizes,2) %going through each location in datasize
     DataParameter = datasizes(idx);
 
@@ -66,7 +67,7 @@ Results = [];
 
 end
 
-%%Manually plotting mean processing results
+%Automation plotting mean processing results attempt
 ymeanvals = y2Vals/5000;
 y2meanvals = y2Vals/10000;
 x = Workers;
@@ -89,6 +90,33 @@ title('Mean Processing time vs number of processors')
 
 
 legend('5,000 Data','10,000 Data')
+%Manually plotting mean processing time
+y3 = [195.04,137.98,110.45,102.79,105.40];
+y4 = [396.21,275.82,218.05,202.78,180.73];
+ymeanvals = y3/5000;
+y2meanvals = y4/10000;
+x = Workers;
+y = ymeanvals;
+figure(6)
+yyaxis left
+plot(x, y, '-rx')
+xlabel('Number of Processors')
+ylabel('Mean Processing time (s)')
+title('Mean Processing time vs number of processors')
+
+x3 = Workers;
+y3 = y2meanvals;
+figure(6)
+yyaxis right
+plot(x3, y3, '-bd')
+xlabel('Number of Processors')
+ylabel('Mean Processing time (s)')
+title('Mean Processing time vs number of processors')
+
+
+legend('5,000 Data','10,000 Data')
+
+
 
 %%Manually plotting sequential
 %%10k
