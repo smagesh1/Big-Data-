@@ -1,11 +1,13 @@
 
-%loading data
+loading data
 FileName = '..\Model\o3_surface_20180701000000.nc'; 
 Contents = ncinfo(FileName);
+%automating testing first
+TestingErrors(FileName,Contents) 
 Lat = ncread(FileName, 'lat');
 Lon = ncread(FileName, 'lon');
 
-TestingErrors(FileName,Contents) %automating testing first
+
 NumHours = 5;
 datasizes = [5000];
 Workers = [2,3,4,5,6]; 
@@ -19,7 +21,7 @@ for idx = 1:size(datasizes,2)
     
 x2 = Workers;
 y2 = Sequential_times;
-figure(2)
+figure(1)
 yyaxis right
 plot(x2, y2, '-bd')
 xlabel('Number of Processors')
@@ -50,7 +52,7 @@ for idx = 1:size(datasizes,2) %going through each location in datasize
 %%graph plotting automation    
 x2Vals = Results(:,1);
 y2Vals = Results(:,2);
-figure(1)
+figure(2)
 yyaxis left
 plot(Results(:,1), Results(:,2), '-rx')
 yyaxis right
@@ -69,7 +71,7 @@ ymeanvals = y2Vals/5000;
 y2meanvals = y2Vals/10000;
 x = Workers;
 y = ymeanvals;
-figure(2)
+figure(3)
 yyaxis left
 plot(x, y, '-rx')
 xlabel('Number of Processors')
@@ -78,7 +80,7 @@ title('Mean Processing time vs number of processors')
 
 x2 = Workers;
 y2 = y2meanvals;
-figure(2)
+figure(3)
 yyaxis right
 plot(x2, y2, '-bd')
 xlabel('Number of Processors')
@@ -92,7 +94,7 @@ legend('5,000 Data','10,000 Data')
 %%10k
 x4Vals = [1,2,3,4,5,6];
 y4Vals = [1300.90,1300.90,1300.90,1300.90,1300.90,1300.90];
-figure(3)
+figure(4)
 yyaxis left
 plot(x4Vals, y4Vals, '-bd')
 xlabel('1 Proccessor')
@@ -102,7 +104,7 @@ legend('10,000 Data')
 %%5k
 x5Vals = [1,2,3,4,5,6];
 y5Vals = [601.04,601.04,601.04,601.04,601.04,601.04];
-figure(4)
+figure(5)
 yyaxis left
 plot(x5Vals, y5Vals, '-rx')
 
