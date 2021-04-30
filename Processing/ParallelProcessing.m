@@ -1,4 +1,4 @@
-function [PP] = ParallelProcessing(DataParameter, WorkerParameter,FileName,Contents,Lat,Lon, NumHours)
+function [Parallel_processing] = ParallelProcessing(DataParameter, WorkerParameter,FileName,Contents,Lat,Lon, NumHours)
 %% 2: Processing parameters
 % ##  provided by customer  ##
 RadLat = 30.2016;
@@ -102,7 +102,7 @@ delete(gcp);
 %% 10: Reshape ensemble values to Lat, lon, hour format
 EnsembleVectorPar = reshape(EnsembleVectorPar, 696, 396, []);
 fprintf('Total processing time for %i workers = %.2f s\n', PoolSize, sum(T3));
-PP =sum(T3);
+Parallel_processing =sum(T3);
 %% 11: ### PROCESSING COMPLETE DATA NEEDS TO BE SAVED  ###
 
 function nUpdateWaitbar(~) % nested function
