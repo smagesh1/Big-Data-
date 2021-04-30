@@ -7,4 +7,4 @@ Project files
 main.m - file to be run
 SequentialProcessing.m
 ParallelProcessing.m
-TestingErrros.m 
+TestingErrors.m 
